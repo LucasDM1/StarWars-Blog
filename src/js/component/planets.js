@@ -8,23 +8,41 @@ export const Planets = () => {
 
 	return (
 		<div className="container-fluid">
-			<h1>Planets </h1>
-			{store.planets.map((planets, index) => {
-				return (
-					<div key={index} className="col-4">
-						<div className="card">
-							<img src="..." className="card-img-top" alt="..." />
-							<div className="card-body">
-								<h5 className="card-title">{planets.name}</h5>
-								<p className="card-text">Learn more about your favorites Star Wars characters</p>
-								<Link to="/">
-									<button className="btn btn-primary">Read more</button>
-								</Link>
+			<div className="row">
+				<h1 className="text-white ml-3">Planets </h1>
+				<div className="col text-right">
+					<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
+						Go back
+					</button>
+				</div>
+			</div>
+
+			<div className="card-columns ">
+				{store.planets.map((planets, index) => {
+					return (
+						<div key={index}>
+							<div className="card bg-dark text-white">
+								<img
+									src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png"
+									className="card-img-top"
+									alt="..."
+								/>
+								<div className="card-body">
+									<h5 className="card-title">{planets.name}</h5>
+									<p className="card-text">{"Population: " + planets.population}</p>
+									<p className="card-text">{"Terrain: " + planets.terrain}</p>
+									<Link to="/">
+										<button className="btn btn-outline-primary">Read more</button>
+									</Link>
+									<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
+										<i className="fab fa-jedi-order" />
+									</button>
+								</div>
 							</div>
 						</div>
-					</div>
-				);
-			})}
+					);
+				})}
+			</div>
 		</div>
 	);
 };
