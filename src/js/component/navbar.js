@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { Context } from "../store/appContext";
+
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-light bg-dark mb-3">
 			<div className="container-fluid">
@@ -16,6 +20,36 @@ export const Navbar = () => {
 						/>
 					</span>
 				</Link>
+				<div className="nav-item dropdown">
+					<button
+						className="btn btn-secondary dropdown-toggle"
+						href="#"
+						id="navbarDropdown"
+						type="button"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false">
+						<span className="badge">{store.favorites.length}</span>
+						Favorites
+					</button>
+					<div className="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+						{store.favorites.length > 0 ? (
+							store.favorites.map((fav, index) => {
+								return (
+									<a
+										key={index}
+										onClick={() => actions.RemoveFav(index)}
+										className="dropdown-item justify-content-center text-white">
+										{fav.name + " "}
+										<i className="fas fa-trash" />
+									</a>
+								);
+							})
+						) : (
+							<a className="justify-content-center text-white"> (empty) </a>
+						)}
+					</div>
+				</div>
 			</div>
 		</nav>
 	);

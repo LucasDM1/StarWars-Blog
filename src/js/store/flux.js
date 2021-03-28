@@ -19,9 +19,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ planets: data.results }))
 					.catch(err => console.error(err));
-			}
+			},
 
-			//Crear funciones para agregar y quitar favoritos, botones, llamar a estas funciones Onclick
+			getFavCharacters: index => {
+				const store = getStore();
+				// store.favorites.map(object => {
+				// 	console.log(object.name);
+
+				// });
+
+				store.favorites.push(store.people[index]);
+				setStore(store);
+			},
+			getFavPlanets: index => {
+				const store = getStore();
+
+				store.favorites.push(store.planets[index]);
+				setStore(store);
+			},
+			RemoveFav: id => {
+				const store = getStore();
+				store.favorites.splice(id, 1);
+				setStore(store);
+			}
 		}
 	};
 };

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const CharactersDet = () => {
+export const PlanetsDet = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
@@ -11,7 +11,7 @@ export const CharactersDet = () => {
 		<div className="container">
 			<div className="row">
 				<div className="col-12 clearfix">
-					<h1 className="display-4 text-white font-weight-bold ml-3">{store.people[params.id].name}</h1>
+					<h1 className="display-4 text-white font-weight-bold ml-3">{store.planets[params.id].name}</h1>
 
 					<img
 						src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png"
@@ -34,39 +34,40 @@ export const CharactersDet = () => {
 					<p>
 						<strong>Name</strong>
 					</p>
-					<p> {store.people[params.id].name}</p>
+					<p> {store.planets[params.id].name}</p>
 				</div>
 				<div className="col-2 justify-content-center">
 					<p>
-						<strong>Birth Year</strong>{" "}
+						<strong>Climate</strong>{" "}
 					</p>
-					<p>{store.people[params.id].birth_year}</p>
+					<p>{store.planets[params.id].climate}</p>
 				</div>
 				<div className="col-2 justify-content-center">
 					<p>
-						<strong>Gender</strong>{" "}
+						<strong>Population</strong>{" "}
 					</p>
-					<p>{store.people[params.id].gender}</p>
+					<p>{store.planets[params.id].population}</p>
 				</div>
 				<div className="col-2 justify-content-center">
 					<p>
-						<strong>Height</strong>{" "}
+						<strong>Orbital period</strong>{" "}
 					</p>
 
-					<p>{store.people[params.id].height}</p>
-				</div>
-				<div className="col-2 justify-content-center">
-					<p>
-						<strong>Hair Color</strong>
-					</p>
-					<p>{store.people[params.id].hair_color}</p>
+					<p>{store.planets[params.id].orbital_period}</p>
 				</div>
 				<div className="col-2 justify-content-center">
 					<p>
 						{" "}
-						<strong>Eye Color</strong>{" "}
+						<strong>Rotation period</strong>{" "}
 					</p>
-					<p>{store.people[params.id].eye_color}</p>
+					<p> {store.planets[params.id].rotation_period} </p>
+				</div>
+				<div className="col-2 justify-content-center">
+					<p>
+						{" "}
+						<strong>Diameter</strong>{" "}
+					</p>
+					<p>{store.planets[params.id].diameter}</p>
 				</div>
 			</div>
 			<div className="row">

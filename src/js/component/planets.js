@@ -11,9 +11,11 @@ export const Planets = () => {
 			<div className="row">
 				<h1 className="text-white ml-3">Planets </h1>
 				<div className="col text-right">
-					<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
-						Go back
-					</button>
+					<Link to="/">
+						<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
+							Go back
+						</button>
+					</Link>
 				</div>
 			</div>
 
@@ -31,10 +33,17 @@ export const Planets = () => {
 									<h5 className="card-title">{planets.name}</h5>
 									<p className="card-text">{"Population: " + planets.population}</p>
 									<p className="card-text">{"Terrain: " + planets.terrain}</p>
-									<Link to="/">
+									<Link to={"/planets/" + index}>
 										<button className="btn btn-outline-primary">Read more</button>
 									</Link>
-									<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
+
+									<button
+										className="btn btn-outline-danger mt-2"
+										onClick={() => (
+											actions.getFavPlanets(index),
+											console.log(store.favorites, store.favorites.length)
+										)}
+										style={{ float: "right" }}>
 										<i className="fab fa-jedi-order" />
 									</button>
 								</div>

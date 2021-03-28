@@ -8,7 +8,17 @@ export const Characters = () => {
 
 	return (
 		<div className="container-fluid">
-			<h1 className="text-white">Characters </h1>
+			<div className="row">
+				<h1 className="text-white ml-3">Characters </h1>
+				<div className="col text-right">
+					<Link to="/">
+						<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
+							Go back
+						</button>
+					</Link>
+				</div>
+			</div>
+
 			<div className="card-columns ">
 				{store.people.map((character, index) => {
 					return (
@@ -33,10 +43,17 @@ export const Characters = () => {
 										Eye color:
 										{" " + character.eye_color}
 									</p>
-									<Link to="/">
-										<button className="btn btn-outline-primary mt-2 mr-5">Learn more!</button>
+									<Link to={"/characters/" + index}>
+										<button className="btn btn-outline-primary mt-2">Learn more!</button>
 									</Link>
-									<button className="btn btn-outline-danger mt-2" style={{ float: "right" }}>
+
+									<button
+										className="btn btn-outline-danger mt-2"
+										onClick={() => (
+											actions.getFavCharacters(index),
+											console.log(store.favorites, store.favorites.length)
+										)}
+										style={{ float: "right" }}>
 										<i className="fab fa-jedi-order" />
 									</button>
 								</div>
