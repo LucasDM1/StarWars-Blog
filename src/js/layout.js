@@ -26,9 +26,6 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/carousel">
 							<Carousel />
 						</Route>
 						<Route exact path="/characters">
