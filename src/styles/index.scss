@@ -1,9 +1,20 @@
 /* 
     General Styles
 */
-.d-flex{
+body{
     background-image: url("https://images.wallpaperscraft.com/image/stars_space_dark_139528_1920x1080.jpg");
-}
-.card-title{
+    background-size: cover;
+}  
+.nav-text, .card-title, h3{
     color: rgb(219,169,13);
 }
+.nav-text {
+    font-size: 20px;
+}
+.shadowp{
+    text-shadow: 2px 2px 4px #000000;
+}
+.carousel{
+    box-shadow: 0 0 30px rgba(235, 33, 46, 0.651);
+}
+

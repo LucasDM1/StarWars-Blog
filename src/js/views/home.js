@@ -30,7 +30,7 @@ export const Home = () => (
 					/>
 					<div className="card-body">
 						<h5 className="card-title">Star Wars Planets</h5>
-						<p className="card-text">Explore all facinating planets that the Star Wars Universe has.</p>
+						<p className="card-text">Explore all facinating planets that the Star Wars Universe has</p>
 						<Link to="/planets">
 							<button className="btn btn-outline-primary">Read more</button>
 						</Link>
@@ -38,5 +38,8 @@ export const Home = () => (
 				</div>
 			</div>
 		</div>
+		<Link to="/carousel">
+			<button className="btn btn-outline-primary">Read more</button>
+		</Link>
 	</div>
 );

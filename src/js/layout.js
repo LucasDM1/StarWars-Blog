@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
+import { Characters } from "./views/characters";
+import { Planets } from "./views/planets";
 import { Home } from "./views/home";
-
 import { CharactersDet } from "./views/charactersDetails";
 import { PlanetsDet } from "./views/planetsDetails";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Characters } from "./component/characters";
-import { Planets } from "./component/planets";
+import { Carousel } from "./component/carousel";
 
 //create your first component
 const Layout = () => {
@@ -20,13 +20,16 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-column">
+		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/carousel">
+							<Carousel />
 						</Route>
 						<Route exact path="/characters">
 							<Characters />

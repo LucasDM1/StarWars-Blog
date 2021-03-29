@@ -19,7 +19,7 @@ export const Characters = () => {
 				</div>
 			</div>
 
-			<div className="card-columns ">
+			<div className="card-columns">
 				{store.people.map((character, index) => {
 					return (
 						<div key={index}>

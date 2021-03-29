@@ -23,19 +23,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getFavCharacters: index => {
 				const store = getStore();
-				// store.favorites.map(object => {
-				// 	console.log(object.name);
+				let object = store.favorites.includes(store.people[index]);
 
-				// });
-
-				store.favorites.push(store.people[index]);
-				setStore(store);
+				if (object == false) {
+					store.favorites.push(store.people[index]);
+					setStore(store);
+				}
 			},
 			getFavPlanets: index => {
 				const store = getStore();
+				let object = store.favorites.includes(store.planets[index]);
 
-				store.favorites.push(store.planets[index]);
-				setStore(store);
+				if (object == false) {
+					store.favorites.push(store.planets[index]);
+					setStore(store);
+				}
 			},
 			RemoveFav: id => {
 				const store = getStore();

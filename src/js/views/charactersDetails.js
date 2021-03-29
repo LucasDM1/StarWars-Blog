@@ -10,7 +10,7 @@ export const CharactersDet = () => {
 	return (
 		<div className="container">
 			<div className="row">
-				<div className="col-12 clearfix">
+				<div className="col-12 ">
 					<h1 className="display-4 text-white font-weight-bold ml-3">{store.people[params.id].name}</h1>
 
 					<img
@@ -70,9 +70,9 @@ export const CharactersDet = () => {
 				</div>
 			</div>
 			<div className="row">
-				<Link to="/planets">
+				<Link to="/characters">
 					<span className="btn btn-outline-danger btn-lg ml-3 my-3" href="#" role="button">
-						Back to planets
+						Back to Characters
 					</span>
 				</Link>
 			</div>
